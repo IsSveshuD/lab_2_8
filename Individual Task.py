@@ -56,12 +56,12 @@ def display_route(routes):
         print("Список маршрутов пуст.")
 
 
-def select_route(staff, period):
+def select_route(routes, period):
     """
     Выбрать маршрут
     """
     result = []
-    for employee in staff:
+    for employee in routes:
         if employee.get('number') == period:
             result.append(employee)
 
