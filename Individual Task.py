@@ -5,7 +5,7 @@
 import sys
 
 
-def get_worker():
+def get_route():
     """
     Запросить данные о маршруте
     """
@@ -20,11 +20,11 @@ def get_worker():
     }
 
 
-def display_workers(staff):
+def display_route(routes):
     """
     Отобразить списко маршрутов
     """
-    if staff:
+    if routes:
         line = '+-{}-+-{}-+-{}-+-{}-+'.format(
             '-' * 4,
             '-' * 30,
@@ -42,7 +42,7 @@ def display_workers(staff):
         )
         print(line)
 
-        for idx, worker in enumerate(staff, 1):
+        for idx, worker in enumerate(routes, 1):
             print(
                 '| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
                     idx,
@@ -56,7 +56,7 @@ def display_workers(staff):
         print("Список маршрутов пуст.")
 
 
-def select_workers(staff, period):
+def select_route(staff, period):
     """
     Выбрать маршрут
     """
@@ -72,7 +72,7 @@ def main():
     """
     Главная функция программы
     """
-    workers = []
+    routes = []
 
     while True:
         command = input(">>> ").lower()
@@ -80,20 +80,20 @@ def main():
             break
 
         elif command == 'add':
-            worker = get_worker()
-            workers.append(worker)
-            if len(workers) > 1:
-                workers.sort(key=lambda item: item.get('number', ''))
+            route = get_route()
+            routes.append(route)
+            if len(routes) > 1:
+                routes.sort(key=lambda item: item.get('number', ''))
 
         elif command == 'list':
-            display_workers(workers)
+            display_route(routes)
 
         elif command.startswith('select'):
             parts = command.split(' ', maxsplit=1)
             period = int(parts[1])
 
-            selected = select_workers(workers, period)
-            display_workers(selected)
+            selected = select_route(routes, period)
+            display_route(selected)
 
         elif command == 'help':
             print("Список команд:\n")
