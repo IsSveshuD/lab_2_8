@@ -13,7 +13,7 @@ def get_worker():
     name = input("Фамилия и инициалы? ")
     post = input("Должность? ")
     year = int(input("Год поступления? "))
-# Создать словарь.
+    # Создать словарь.
     return {
         'name': name,
         'post': post,
@@ -21,7 +21,7 @@ def get_worker():
     }
 
 
- def display_workers(staff):
+def display_workers(staff):
     """
     Отобразить список работников.
     """

@@ -6,7 +6,8 @@ def t():
     r = 1
     while 1:
         ch = int(input())
-        if not ch: break
+        if not ch:
+            break
         r *= ch
         print(r)
     return (r)

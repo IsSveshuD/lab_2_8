@@ -10,7 +10,7 @@ def tes_input(n):
     try:
         n = int(n)
         return True
-    except:
+    except Exception:
         return False
 
 
